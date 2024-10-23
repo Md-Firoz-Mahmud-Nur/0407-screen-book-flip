@@ -1,0 +1,48 @@
+/* Testimonials.css */
+.testimonial-container {
+    position: relative;
+    /* Enable positioning for child elements */
+    width: 100%;
+    /* Full width */
+    max-width: 400px;
+    /* Set a maximum width for the testimonial */
+    height: 300px;
+    /* Set height for the testimonial */
+    overflow: hidden;
+    /* Hide overflowing elements */
+}
+
+/* Testimonial card */
+.testimonial-card {
+    position: absolute;
+    /* Position absolutely within the container */
+    width: 100%;
+    /* Full width of the container */
+    transition: transform 0.6s ease;
+    /* Smooth transition for the swiping effect */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    top: 0;
+    /* Align to top */
+}
+
+/* Swiping effect */
+.testimonial-container.swiping .testimonial-card {
+    transform: translateX(-100%);
+    /* Swipe out to the left */
+}
+
+/* Testimonial styles */
+.testimonial-card img {
+    display: block;
+    margin: 0 auto;
+}
+
+.testimonial-card p {
+    margin: 1rem 0;
+}
+
+.testimonial-card h3 {
+    margin-top: 1rem;
+}

@@ -3,7 +3,7 @@ import { FaHandsHelping, FaLeaf, FaHotjar, FaBabyCarriage, FaHeadSideCough, FaRu
 
 // Sample images for the services
 const serviceImages = {
-    remedial: "https://spinalandsportscare.com.au/wp-content/uploads/2018/12/spinalandsportscare.com.au/wp-content/uploads/2018/12/spinalandsports-blog_remedialmassage.jpg",
+    remedial: "https://www.coolaromaspa.com/wp-content/uploads/2018/10/massage-for-men-tilehurst.jpg",
     lymphatic: "https://agtwc.com/wp-content/uploads/2022/03/lymphatic-massage-2.jpg",
     aromatherapy: "https://img.freepik.com/premium-photo/differentsize-smooth-hot-stones-stacked-spa-setting_762026-80140.jpg",
     pregnancy: "https://excelsiorintegrative.com/wp-content/uploads/2024/08/shutterstock_2436370383.jpg",

@@ -31,7 +31,7 @@ const Home = () => {
 
 
     return (
-        <div>
+        <div className='bg-gradient-to-b from-[#216880] to-pink-300'>
             {/* Hero Section */}
             <div
                 className="relative min-h-screen flex flex-col items-center justify-center pt-24 pb-10"
@@ -53,7 +53,7 @@ const Home = () => {
                     className="relative z-10 text-center p-10 bg-white bg-opacity-70 shadow-lg rounded-lg backdrop-blur w-4/5 md:w-3/5 lg:w-2/5"
                 >
                     <motion.h1
-                        className="text-5xl font-extrabold text-white"
+                        className="text-4xl md:text-5xl font-extrabold text-gray-600"
                         initial={{ scale: 0.9 }}
                         animate={{ scale: 1 }}
                         transition={{ duration: 0.8, ease: 'easeInOut' }}

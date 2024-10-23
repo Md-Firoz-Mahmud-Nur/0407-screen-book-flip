@@ -36,7 +36,7 @@ const Testimonials = () => {
     }, []);
 
     return (
-        <div className='flex flex-col items-center justify-center mt-20 pb-5'>
+        <div className='flex flex-col items-center justify-center pb-5'>
             <h2 className="text-4xl font-bold text-white mb-6">What Our Clients Say</h2>
             <div className={`testimonial-container bg-gray-50 rounded-xl border h-fit ${swiping ? 'swiping' : ''}`}>
                 <div className="testimonial-card">

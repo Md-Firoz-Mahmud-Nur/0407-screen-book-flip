@@ -7,7 +7,7 @@ import { Link } from 'react-router-dom';
 import Testimonials from './Testimonials';
 
 const backgrounds = [
-    'https://www.kch.org/sites/default/files/styles/basic_image/public/2021-03/bigstock-Essential-body-massage-oils-in-17769866.jpg?itok=rY5jt-Ec',
+    'https://miro.medium.com/v2/resize:fit:1400/0*My6bRIKC4qyAM3IV.jpeg',
     'https://us1-photo.nextdoor.com/post_photos/70/d5/70d508c7de2a93c2e78e80c3a746da4a.jpg',
     'https://mothersnaturalvibes.com/cdn/shop/files/Hot-Stone-title-Pic-1080x675.jpg?v=1685923585&width=1445',
 ];

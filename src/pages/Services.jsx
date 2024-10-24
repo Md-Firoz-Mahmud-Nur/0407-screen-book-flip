@@ -1,4 +1,6 @@
+import { useRef } from 'react';
 import { motion } from 'framer-motion';
+import HTMLFlipBook from 'react-pageflip';
 import { FaHandsHelping, FaLeaf, FaHotjar, FaBabyCarriage, FaHeadSideCough, FaRunning } from 'react-icons/fa';
 
 // Sample images for the services
@@ -9,13 +11,14 @@ const serviceImages = {
     pregnancy: "https://excelsiorintegrative.com/wp-content/uploads/2024/08/shutterstock_2436370383.jpg",
     indian: "https://www.mersearoadclinic.co.uk/assets/uploaded/images/ea457adccaa9e569cff05de9b4f3b04d_XL.jpg",
     thai: "https://www.coolaromaspa.com/wp-content/uploads/2018/10/massage-for-men-tilehurst.jpg",
-    infant: "https://spinalandsportscare.com.au/wp-content/uploads/2018/12/spinalandsports-blog_remedialmassage.jpg", // Reused image for example
-    deepTissue: "https://agtwc.com/wp-content/uploads/2022/03/lymphatic-massage-2.jpg", // Reused image for example
-    agedCare: "https://img.freepik.com/premium-photo/differentsize-smooth-hot-stones-stacked-spa-setting_762026-80140.jpg", // Reused image for example
-    sports: "https://agtwc.com/wp-content/uploads/2022/03/lymphatic-massage-2.jpg", // Reused image for example
-    seated: "https://www.mersearoadclinic.co.uk/assets/uploaded/images/ea457adccaa9e569cff05de9b4f3b04d_XL.jpg", // Reused image for example
+    infant: "https://spinalandsportscare.com.au/wp-content/uploads/2018/12/spinalandsports-blog_remedialmassage.jpg",
+    deepTissue: "https://agtwc.com/wp-content/uploads/2022/03/lymphatic-massage-2.jpg",
+    agedCare: "https://img.freepik.com/premium-photo/differentsize-smooth-hot-stones-stacked-spa-setting_762026-80140.jpg",
+    sports: "https://agtwc.com/wp-content/uploads/2022/03/lymphatic-massage-2.jpg",
+    seated: "https://www.mersearoadclinic.co.uk/assets/uploaded/images/ea457adccaa9e569cff05de9b4f3b04d_XL.jpg",
 };
 
+// Services array
 const services = [
     {
         title: "Remedial Massage",
@@ -152,34 +155,59 @@ const services = [
 ];
 
 const Services = () => {
+    const bookRef = useRef(null); // Reference to the flipbook
+
     return (
-        <div className="min-h-screen flex flex-col items-center bg-gradient-to-b from-[#238f89] to-gray-100 pt-24 pb-10">
-            <h1 className="text-4xl font-bold mb-8 text-center text-stone-300">Our Services</h1>
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 w-full p-6">
+        <div className="flex flex-col items-center bg-gradient-to-b from-[#16414e] to-gray-300 pt-24 pb-10">
+            {/* Book Cover */}
+            <HTMLFlipBook
+                ref={bookRef}
+                width={400}
+                height={500}
+                minWidth={200}
+                maxWidth={1024}
+                minHeight={400}
+                maxHeight={1536}
+                maxShadowOpacity={0.5}
+                className="book shadow-xl"
+                flippingTime={1000}
+                useMouseEvents
+                startPage={0}
+                swipeDistance={50}
+                showCover
+                renderOnlyPageLengthChange
+            >
+                {/* Cover Page */}
+                <div className="page h-full bg-gradient-to-br from-purple-500 to-purple-700 text-white p-8 flex justify-center items-center">
+                    <h1 className="text-4xl font-bold">Massage Therapy <br /> Services</h1>
+                </div>
+
+                {/* Service Pages */}
                 {services.map((service, index) => (
-                    <motion.div
-                        key={index}
-                        className={`text-gray-700 p-6 rounded-lg shadow-lg transition-transform duration-500 ${service.bgColor} border border-gray-300`}
-                        initial={{ opacity: 0, y: 20 }}
-                        animate={{ opacity: 1, y: 0 }}
-                        exit={{ opacity: 0, y: 20 }}
-                        transition={{ duration: 0.5, delay: index * 0.1 }} // Staggered animations
-                    >
-                        <img src={service.image} alt={service.title} className="w-full h-32 object-cover rounded-t-lg mb-4" />
-                        <h2 className="text-xl font-semibold mb-2">{service.title}</h2>
-                        <p className="mb-2">{service.icon}{service.description}</p>
-                        <h3 className="font-bold">Pricing:</h3>
-                        <ul className="list-disc pl-5">
+                    <div key={index} className={`page p-8 ${service.bgColor} rounded-lg shadow-lg flex flex-col items-center`}>
+                        <motion.h2 className="text-3xl font-bold mb-4" whileHover={{ scale: 1.05 }}>{service.icon}{service.title}</motion.h2>
+                        <p className="mb-4 text-center">{service.description}</p>
+                        <ul className="mb-4">
                             {service.prices.map((price, idx) => (
-                                <li key={idx} className="flex">
-                                    <span className="font-semibold">{price.duration}: </span>
-                                    <span className="ml-1">{price.cost}</span>
+                                <li key={idx} className="text-lg text-center">
+                                    {price.duration}: {price.cost}
                                 </li>
                             ))}
                         </ul>
-                    </motion.div>
+                        <motion.img
+                            src={service.image}
+                            alt={service.title}
+                            className="rounded-lg object-cover h-48 w-full shadow-md"
+                            whileHover={{ scale: 1.1 }}
+                        />
+                    </div>
                 ))}
-            </div>
+
+                {/* Ending Page */}
+                <div className="page bg-gradient-to-br from-gray-700 to-gray-900 text-white p-8 flex justify-center items-center">
+                    <h2 className="text-3xl font-bold">Thank You for Exploring!</h2>
+                </div>
+            </HTMLFlipBook>
         </div>
     );
 };

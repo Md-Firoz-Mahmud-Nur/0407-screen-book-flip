@@ -3,12 +3,23 @@
 @tailwind utilities;
 
 @layer utilities {
-    .animate-slide {
-        @apply opacity-100 translate-y-0;
-        transition: opacity 0.5s ease, transform 0.5s ease;
-    }
+  .animate-slide {
+    @apply opacity-100 translate-y-0;
+    transition: opacity 0.5s ease, transform 0.5s ease;
+  }
 
-    .service-card {
-        @apply opacity-0 translate-y-10;
-    }
+  .service-card {
+    @apply opacity-0 translate-y-10;
+  }
+}
+
+/* Hide scrollbar */
+.custom-scrollbar::-webkit-scrollbar {
+  display: none; /* For WebKit-based browsers */
+}
+
+.custom-scrollbar {
+  overflow-y: scroll; /* Enable vertical scroll */
+  -ms-overflow-style: none; /* For IE and Edge */
+  scrollbar-width: none; /* For Firefox */
 }
